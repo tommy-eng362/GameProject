@@ -10,8 +10,27 @@ public class Game {
 
     static ArrayList<Item> inventory = new ArrayList<Item>();
 
+    public static Room currentRoom = World.buildWorld();
+
+    public static Room getRoom(){
+        return currentRoom;
+    }
+
+    public static void print(Object obj) {
+        System.out.println(obj.toString());
+    }
+
+    public static Item getItem2(String name){
+        for(Item c : inventory){
+            if(c.getN().equals(name)){
+                return c;
+            }
+        }
+        return null;
+    }
+
     public static void runGame() {
-        Room currentRoom = World.buildWorld();
+       // Room currentRoom = World.buildWorld();
         Scanner input = new Scanner(System.in);
 
         String command;
@@ -30,9 +49,11 @@ public class Game {
                 case "d":
                     currentRoom = currentRoom.getExit(command.charAt(0));
                     break;
+
                 case "x":
                     System.out.println("Bye! Thanks for walking through my game.");
                     break;
+
                 case "t":
                     Item i = currentRoom.getItem(words[1]);
                     if(currentRoom.getItem(words[1]) == null){
@@ -45,6 +66,7 @@ public class Game {
                         currentRoom.removeItem(words[1]);
                     }
                     break;
+
                 case "i":
                     if(inventory.size() == 0){
                         System.out.println("Inventory empty");
@@ -55,6 +77,7 @@ public class Game {
                         }
                     }
                     break;
+
                 case "l": //look at items in inventory and the room
                 if(currentRoom.getItem(words[1]) != null){
                     System.out.println(currentRoom.getItem(words[1]).getD() + "\n");
@@ -74,11 +97,47 @@ public class Game {
                 }
                 break;
 
+                case "use":
+                    System.out.println("You try to use the " + words[1]+".");
+
+                    if(currentRoom.getItem(words[1]) != null){
+                        currentRoom.getItem(words[1]).use();
+                    }
+
+                    else{
+                        if(getItem2(words[1]) == null){
+                            System.out.println("There is no item.");
+                        }
+                        else{
+                            getItem2(words[1]).use();
+                            System.out.println();
+                            }
+                        }
+                    break;
+        
+                    case "o":
+                    System.out.println("You try to open the " + words[1]+".");
+
+                    if(currentRoom.getItem(words[1]) != null){
+                        currentRoom.getItem(words[1]).open();
+                    }
+
+                    else{
+                        if(getItem2(words[1]) == null){
+                            System.out.println("There is no item.");
+                        }
+                        else{
+                            getItem2(words[1]).open();
+                            System.out.println();
+                            }
+                        }
+                    break;
+                    
                 default:
                 System.out.println("I don't know what you mean.");
                 }
             } while(!command.equals("x"));
-
+        
             input.close();
         }
      }

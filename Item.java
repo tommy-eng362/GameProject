@@ -1,10 +1,11 @@
 package GameLab;
 
-public class Item {
+public class Item extends Game{
     private String iname;
     private String idescrip;
 
     public Item (String in, String id){
+        super();
         iname = in;
         idescrip = id;
     }
@@ -27,5 +28,13 @@ public class Item {
 
     public String toString(){
         return iname;
+    }
+
+    public void open(){
+        System.out.println("You can't open that!");
+    }
+
+    public void use(){
+        System.out.println("You can't use that!");
     }
 }

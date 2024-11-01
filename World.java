@@ -20,7 +20,9 @@ public class World {
     Item tvRemote = new Item("remote", "tv remote");
     Item blanket = new Item("blanket", "blanket");
     Item batteries = new Item("batteries", "batteries");
-    
+    Safe safe = new Safe("safe", "a large safe"); 
+    Combination combination = new Combination("combination", "A combination of numbers. Possibly for a safe.");
+
     entrRoom.addExit('e',livRoom);
     entrRoom.addExit('w',diningRoom);
     entrRoom.addExit('u',upStairs);
@@ -44,11 +46,13 @@ public class World {
     basementRoom.addExit('u', kitchenRoom);
     basementRoom.setItem(bedroomKey);
     basementRoom.setItem(batteries);
+    basementRoom.setItem(safe);
 
     upStairs.addExit('n',bedRoom);
     upStairs.addExit('d',entrRoom);
 
     bedRoom.addExit('s',upStairs);
+    bedRoom.setItem(combination);
 
     return entrRoom;
     }
