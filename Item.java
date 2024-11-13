@@ -1,4 +1,4 @@
-package GameLab;
+
 
 public class Item extends Game{
     private String iname;

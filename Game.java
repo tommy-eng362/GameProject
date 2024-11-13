@@ -1,4 +1,3 @@
-package GameLab;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -47,9 +46,20 @@ public class Game {
                 case "s":
                 case "u":
                 case "d":
-                    currentRoom = currentRoom.getExit(command.charAt(0));
-                    break;
+                    Room nextRoom = currentRoom.getExit(command.charAt(0));
+                    if(nextRoom == null){
+                        System.out.println("There is no exit.");
+                        break;
+                    }
 
+                    if (nextRoom.getLock() == true){
+                        System.out.println("You cannot enter. The room is locked.");
+                    }
+                    else{
+                        currentRoom = nextRoom;
+                    }
+                    break;
+                    
                 case "x":
                     System.out.println("Bye! Thanks for walking through my game.");
                     break;
@@ -132,7 +142,7 @@ public class Game {
                             }
                         }
                     break;
-                    
+
                 default:
                 System.out.println("I don't know what you mean.");
                 }

@@ -1,4 +1,4 @@
-package GameLab;
+
 
 public class Cane extends Item{
 

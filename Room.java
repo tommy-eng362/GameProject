@@ -1,9 +1,9 @@
-package GameLab;
 import java.util.HashMap;
 
 public class Room {
 
     private String description;
+    private String name;
     private Room east;
     private Room west;
     private Room north;
@@ -12,9 +12,11 @@ public class Room {
     private Room down;
     private Item i;
     private HashMap<String,Item> inven = new HashMap<>();
+    public boolean lock = false;
 
-    public Room(String describe) {
+    public Room(String describe, String name) {
     description = describe;
+    this.name = name;
     }
 
     public Room getExit(char direct) {
@@ -93,5 +95,22 @@ public Item takeItem(){
 public void removeItem(String name) {
     inven.remove(name);
 }
+
+public void setLock(boolean lock){
+    this.lock = lock; //variable lock is now true
+}
+
+public boolean getLock(){
+    return lock;
+}
+
+public void setName(String name){
+    this.name = name;
+}
+
+public String getName(){
+    return name;
+}
+
 
 }
