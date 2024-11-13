@@ -1,5 +1,4 @@
 
-
 public class Safe extends Item {
 
     public Safe(String in, String id){
