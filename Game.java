@@ -1,13 +1,43 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Game {
     public static void main(String[] args) {
+        textfile();
         runGame();
     }
 
+    public static void textfile(){
+        try {
+            Scanner input = new Scanner(new File("RoomDescriptions.txt"));
+            while(input.hasNextLine()) {
+                Thread.sleep(1000); // sleep for 1 second
+                String name = input.nextLine();
+                String description = input.nextLine();
+                
+
+                if(!name.equals("#") && !description.equals("#")){
+                    roomDescriptions.put(name,description);
+                    System.out.println(name);
+                    System.out.println(description);
+                }
+            }
+            input.close();
+        } 
+        catch (FileNotFoundException e) {
+        System.out.println("File not found!!!");
+        } 
+        catch (InterruptedException ex) {
+            System.out.println("Bummer.");
+        }
+    }
+
     static ArrayList<Item> inventory = new ArrayList<Item>();
+    static HashMap<String, String> roomDescriptions = new HashMap<String,String>();
 
     public static Room currentRoom = World.buildWorld();
 

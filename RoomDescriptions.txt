@@ -1,0 +1,24 @@
+entrance    
+entrance room
+#
+living room
+the living room
+#
+dining room
+the dining room
+#
+kitchen
+the kitchen
+#
+bath room
+the bath room
+#
+basement
+the basement
+#
+upstairs
+the upstairs
+#
+bed room
+the bed room
+#
