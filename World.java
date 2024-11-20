@@ -3,14 +3,14 @@ public class World {
     // Returns the room the player starts in.
     public static Room buildWorld() {
 
-    Room entrRoom = new Room("You are at the entrance.", "entrance");
-    Room livRoom = new Room("You are in the living room.","living room");
-    Room diningRoom = new Room("You are in the dining room.", "dining room");
-    Room kitchenRoom = new Room("You are in the kitchen.", "kitchen");
-    Room bathRoom = new Room("You are in the bathroom", "bath room");
-    Room basementRoom = new Room("You are in the basement", "basement");
-    Room upStairs = new Room("You are upstairs", "upstairs");
-    Room bedRoom = new Room("You are in the bedroom", "bed room");
+    Room entrRoom = new Room(/* "You are at the entrance.",*/ "entrance");
+    Room livRoom = new Room(/*"You are in the living room.",*/"living room");
+    Room diningRoom = new Room(/*"You are in the dining room.",*/ "dining room");
+    Room kitchenRoom = new Room(/*"You are in the kitchen.",*/ "kitchen");
+    Room bathRoom = new Room(/*"You are in the bathroom",*/ "bath room");
+    Room basementRoom = new Room(/*"You are in the basement",*/ "basement");
+    Room upStairs = new Room(/*"You are upstairs",*/ "upstairs");
+    Room bedRoom = new Room(/*"You are in the bedroom",*/ "bed room");
 
     Item cup = new Item("cup", "plastic cup");
     Item tape = new Item("tape", "it's duct tape.");

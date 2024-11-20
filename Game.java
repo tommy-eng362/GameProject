@@ -11,7 +11,7 @@ public class Game {
         runGame();
     }
 
-    public static void textfile(){
+    public static void textfile(){ //load method (maybe)
         try {
             Scanner input = new Scanner(new File("RoomDescriptions.txt"));
             while(input.hasNextLine()) {
@@ -37,7 +37,7 @@ public class Game {
     }
 
     static ArrayList<Item> inventory = new ArrayList<Item>();
-    static HashMap<String, String> roomDescriptions = new HashMap<String,String>();
+    public static HashMap<String, String> roomDescriptions = new HashMap<String,String>(); //key: room name, value: room description
 
     public static Room currentRoom = World.buildWorld();
 

@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Room {
+public class Room implements Serializable{
 
-    private String description;
+    //private String description;
     private String name;
     private Room east;
     private Room west;
@@ -14,103 +15,101 @@ public class Room {
     private HashMap<String,Item> inven = new HashMap<>();
     public boolean lock = false;
 
-    public Room(String describe, String name) {
-    description = describe;
-    this.name = name;
+    public Room(/*String describe,*/ String name) {
+        //description = describe;
+        this.name = name;
     }
 
     public Room getExit(char direct) {
-    if (direct == 'e') {
-    return east;
+        if (direct == 'e') {
+            return east;
+        }
+
+        else if (direct == 'w') {
+            return west;
+        }
+
+        else if (direct == 'n') {
+            return north;
+        }
+
+        else if (direct == 's') {
+            return south;
+        }
+
+        else if (direct == 'u') {
+            return up;
+        }
+
+        else if (direct == 'd') {
+            return down;
+        }
+
+        else {
+            return null;
+        }
     }
 
-    else if (direct == 'w') {
-    return west;
+    public void addExit(char direct, Room robject) {
+        if (direct == 'e') {
+            east = robject;
+        }
+        else if (direct == 'w') {
+            west = robject;
+        }
+        else if (direct == 'n') {
+            north = robject;
+        }
+        else if (direct == 's') {
+            south = robject;
+        }
+        else if (direct == 'u') {
+            up = robject;
+        }
+        else if (direct == 'd') {
+            down = robject;
+        }
+        else {
+            robject = null;
+        }
     }
 
-    else if (direct == 'n') {
-    return north;
+    public String toString() {
+        return Game.roomDescriptions.get(name);
+    } 
+
+    public void setItem(Item i){
+        this.i = i;
+        inven.put(i.getN(),i);
     }
 
-    else if (direct == 's') {
-    return south;
+    public Item getItem(String name){
+        return inven.get(name);
     }
 
-    else if (direct == 'u') {
-    return up;
+    public Item takeItem(){
+        Item it = i;
+        i = null;
+        return it;
     }
 
-    else if (direct == 'd') {
-    return down;
+    public void removeItem(String name) {
+        inven.remove(name);
     }
 
-    else {
-    return null;
+    public void setLock(boolean lock){
+        this.lock = lock; //variable lock is now true
     }
-}
 
-public void addExit(char direct, Room robject) {
-    if (direct == 'e') {
-    east = robject;
+    public boolean getLock(){
+        return lock;
     }
-    else if (direct == 'w') {
-    west = robject;
+
+    public void setName(String name){
+        this.name = name;
     }
-    else if (direct == 'n') {
-    north = robject;
+
+    public String getName(){
+        return name;
     }
-    else if (direct == 's') {
-    south = robject;
-    }
-    else if (direct == 'u') {
-    up = robject;
-    }
-    else if (direct == 'd') {
-    down = robject;
-    }
-    else {
-    robject = null;
-    }
-}
-
-public String toString() {
-    return description;
-} 
-
-public void setItem(Item i){
-    this.i = i;
-    inven.put(i.getN(),i);
-}
-
-public Item getItem(String name){
-    return inven.get(name);
-}
-
-public Item takeItem(){
-    Item it = i;
-    i = null;
-    return it;
-}
-
-public void removeItem(String name) {
-    inven.remove(name);
-}
-
-public void setLock(boolean lock){
-    this.lock = lock; //variable lock is now true
-}
-
-public boolean getLock(){
-    return lock;
-}
-
-public void setName(String name){
-    this.name = name;
-}
-
-public String getName(){
-    return name;
-}
-
-
 }
