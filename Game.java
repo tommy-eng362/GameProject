@@ -1,6 +1,10 @@
-
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -11,19 +15,16 @@ public class Game {
         runGame();
     }
 
-    public static void textfile(){ //load method (maybe)
+    public static void textfile(){ //creates values in roomDescriptions HashMap
         try {
             Scanner input = new Scanner(new File("RoomDescriptions.txt"));
             while(input.hasNextLine()) {
-                Thread.sleep(1000); // sleep for 1 second
                 String name = input.nextLine();
                 String description = input.nextLine();
                 
 
                 if(!name.equals("#") && !description.equals("#")){
                     roomDescriptions.put(name,description);
-                    System.out.println(name);
-                    System.out.println(description);
                 }
             }
             input.close();
@@ -31,15 +32,59 @@ public class Game {
         catch (FileNotFoundException e) {
         System.out.println("File not found!!!");
         } 
-        catch (InterruptedException ex) {
-            System.out.println("Bummer.");
+    }
+
+    public static void saveList(String fileName) {
+        File f = new File(fileName);
+        try {
+            FileOutputStream fos = new FileOutputStream(f);
+            ObjectOutputStream stream = new ObjectOutputStream(fos);
+            stream.writeObject(currentRoom); //save room
+            stream.writeObject(inventory); //save inventory
+            stream.writeObject(roomObjects); //save rooms(map)
+            stream.close();
+            }
+        catch (FileNotFoundException e) {
+            System.out.println("File "+fileName+" not found.");
+            System.exit(0);
+        } 
+        catch (IOException ex) {
+            System.out.println("Bummers, man.");
         }
     }
 
-    static ArrayList<Item> inventory = new ArrayList<Item>();
-    public static HashMap<String, String> roomDescriptions = new HashMap<String,String>(); //key: room name, value: room description
+    public static void loadList(String fileName) {
+        File f = new File(fileName);
+        try {
+            FileInputStream fos = new FileInputStream(f);
+            ObjectInputStream stream = new ObjectInputStream(fos);
+            currentRoom = (Room) stream.readObject(); //load currentRoom
+            inventory = (ArrayList) stream.readObject(); //load inventory
+            roomObjects = (HashMap) stream.readObject(); //load rooms(map)
+
+            stream.close();
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("File "+fileName+" not found.");
+            System.exit(0);
+        } 
+        catch (IOException ex) {
+            System.out.println("Bummers, man.");
+        } 
+        catch (ClassNotFoundException ex) {
+            System.out.println("Something went horribly wrong.");
+        }
+    }
+
+    static ArrayList<Item> inventory = new ArrayList<Item>(); //inventory
+
+    static HashMap<String, String> roomDescriptions = new HashMap<String,String>(); //key: room name, value: room description
+
+    static HashMap<String,Room> roomObjects = new HashMap<String,Room>(); //key: room name, value: room
 
     public static Room currentRoom = World.buildWorld();
+
+    public static  Scanner input = new Scanner(System.in); //global scanner
 
     public static Room getRoom(){
         return currentRoom;
@@ -60,10 +105,10 @@ public class Game {
 
     public static void runGame() {
        // Room currentRoom = World.buildWorld();
-        Scanner input = new Scanner(System.in);
 
         String command;
         do {
+            System.out.println(currentRoom.getName());
             System.out.println(currentRoom);
             System.out.print("Where do you want to go? ");
             command = input.nextLine();
@@ -173,6 +218,20 @@ public class Game {
                         }
                     break;
 
+                    case "save":
+                   
+                    saveList("SaveFile");
+                    System.out.println("Game saved.");
+                   
+                    break;
+
+                    case "load":
+
+                    loadList("SaveFile");
+                    System.out.println("Game loaded");
+
+                    break;
+
                 default:
                 System.out.println("I don't know what you mean.");
                 }
@@ -181,20 +240,3 @@ public class Game {
             input.close();
         }
      }
-
-
-
-
-
-
-
-
-
-
-     //System.out.println(currentRoom);
-//System.out.println("\nNow we'll move east!");
-//currentRoom = currentRoom.getExit('e');
-//System.out.println(currentRoom);
-//System.out.println("\nNow we'll move west!");
-//currentRoom = currentRoom.getExit('w');
-//System.out.println(currentRoom);

@@ -75,7 +75,8 @@ public class Room implements Serializable{
     }
 
     public String toString() {
-        return Game.roomDescriptions.get(name);
+        String s = this.getDescription(name);
+        return s;
     } 
 
     public void setItem(Item i){
@@ -111,5 +112,15 @@ public class Room implements Serializable{
 
     public String getName(){
         return name;
+    }
+
+    public String getDescription(String n){
+        //System.out.println(n);
+        for(String s : Game.roomDescriptions.keySet()){
+            if(s.equals(n)){
+                return Game.roomDescriptions.get(s);
+            }
+        }
+        return null;
     }
 }

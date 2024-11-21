@@ -1,6 +1,6 @@
 #
 #
-entrance    
+entrance
 entrance room
 #
 #
