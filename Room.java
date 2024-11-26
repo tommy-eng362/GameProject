@@ -13,6 +13,7 @@ public class Room implements Serializable{
     private Room down;
     private Item i;
     private HashMap<String,Item> inven = new HashMap<>();
+    private HashMap<String,NPC> NPCMap = new HashMap<>();
     public boolean lock = false;
 
     public Room(/*String describe,*/ String name) {
@@ -122,5 +123,17 @@ public class Room implements Serializable{
             }
         }
         return null;
+    }
+
+    public void setNPC(String name, NPC i){
+        NPCMap.put(name, i);
+    }
+
+    public NPC getNPC(String name){
+        return NPCMap.get(name);
+    }
+
+    public void removeNPC(String name) {
+        NPCMap.remove(name);
     }
 }

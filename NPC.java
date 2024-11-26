@@ -33,8 +33,8 @@ public class NPC {
             Game.print("Option "+(i+1)+": "+options[i]);
         }
         Game.print("Enter an option (1-"+options.length+"):");
-        int option = Game.scan.nextInt();
-        Game.scan.nextLine(); // Flush input buffer
+        int option = Game.input.nextInt();
+        Game.input.nextLine(); // Flush input buffer
         response(option);
     }
 }

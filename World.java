@@ -26,6 +26,8 @@ public class World {
     Vase vase = new Vase("vase", " A vase. Something is inside..."); //vase contains key
     Cane cane = new Cane("cane", "A sturdy walking cane."); //paired with vase
 
+    Puppy puppy = new Puppy("puppy", "A hideous puppy wags his tail.");
+
     entrRoom.addExit('e',livRoom);
     entrRoom.addExit('w',diningRoom);
     entrRoom.addExit('u',upStairs);
@@ -63,6 +65,7 @@ public class World {
     upStairs.addExit('n',bedRoom);
     upStairs.addExit('d',entrRoom);
     upStairs.setLock(false);
+    upStairs.setNPC("puppy",puppy);
 
     bedRoom.addExit('s',upStairs);
     bedRoom.setLock(true);

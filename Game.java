@@ -94,7 +94,7 @@ public class Game {
         System.out.println(obj.toString());
     }
 
-    public static Item getItem2(String name){
+    public static Item getItem2(String name){ //gets inventory item
         for(Item c : inventory){
             if(c.getN().equals(name)){
                 return c;
@@ -231,6 +231,19 @@ public class Game {
                     System.out.println("Game loaded");
 
                     break;
+
+                    case "talk":
+                    System.out.println("You try to talk tuah the " + words[1]+".");
+
+                    if(currentRoom.getNPC(words[1]) != null){
+                        currentRoom.getNPC(words[1]).talk();
+                    }
+
+                    else{
+                            System.out.println("There is no one.");
+                    }
+                    break;
+
 
                 default:
                 System.out.println("I don't know what you mean.");
