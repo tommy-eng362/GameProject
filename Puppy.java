@@ -20,7 +20,7 @@ public class Puppy extends NPC{
             else if (count == 1){
                 say("Hey! Wanna play fetch? Say yes! Say yes!\n");
                 String[] options = {
-                    "Yes! I love ftch!",
+                    "Yes! I love fetch!",
                     "No. I am a horrible person and don't like playing with puppies."
                     };
                 getResponse(options);

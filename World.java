@@ -27,6 +27,7 @@ public class World {
     Cane cane = new Cane("cane", "A sturdy walking cane."); //paired with vase
 
     Puppy puppy = new Puppy("puppy", "A hideous puppy wags his tail.");
+    Oldman oldman = new Oldman("oldman","An old man sleeping on the couch.");
 
     entrRoom.addExit('e',livRoom);
     entrRoom.addExit('w',diningRoom);
@@ -39,6 +40,7 @@ public class World {
     livRoom.setItem(tvRemote);
     livRoom.setItem(blanket);
     livRoom.setLock(false);
+    livRoom.setNPC("oldman",oldman);
 
     diningRoom.addExit('e',entrRoom);
     diningRoom.addExit('n',bathRoom);

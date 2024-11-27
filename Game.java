@@ -22,7 +22,6 @@ public class Game {
                 String name = input.nextLine();
                 String description = input.nextLine();
                 
-
                 if(!name.equals("#") && !description.equals("#")){
                     roomDescriptions.put(name,description);
                 }
@@ -219,21 +218,19 @@ public class Game {
                     break;
 
                     case "save":
-                   
                     saveList("SaveFile");
                     System.out.println("Game saved.");
                    
                     break;
 
                     case "load":
-
                     loadList("SaveFile");
                     System.out.println("Game loaded");
 
                     break;
 
                     case "talk":
-                    System.out.println("You try to talk tuah the " + words[1]+".");
+                    System.out.println("You try to talk to the " + words[1]+".");
 
                     if(currentRoom.getNPC(words[1]) != null){
                         currentRoom.getNPC(words[1]).talk();
