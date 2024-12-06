@@ -50,14 +50,14 @@ public class Oldman extends NPC{
                 switch(option) {
                     case 1:
                     say("What is it now! Not again, leave me alone.");
-                    Game.print("The oldman throws his wallet at you. You pick it up.\n");
-                    Item wallet = new Item("wallet", "you bothered the oldman for this.");
-                    Game.inventory.add(wallet); //make a wallet class later.
+                    Game.print("The oldman throws a rusty key at you. You pick it up.\n");
+                    FrontDoorKey frontdoorkey = new FrontDoorKey("entrancekey", "you bothered the oldman for this.");
+                    Game.inventory.add(frontdoorkey); //make a wallet class later.
                     break;
 
                     case 2:
                     say("zzzZZZ...zzzZZZ...");
-                    Game.print("The oldman continues to snore.\n");
+                    Game.print("The oldman continues to snore. You screwed up its over now.\n");
                     break;
                 }
             }

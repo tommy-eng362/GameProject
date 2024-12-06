@@ -32,3 +32,7 @@ bed room
 the bed room
 #
 #
+outside
+the outside
+#
+#

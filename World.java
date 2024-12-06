@@ -11,6 +11,7 @@ public class World {
     Room basementRoom = new Room(/*"You are in the basement",*/ "basement");
     Room upStairs = new Room(/*"You are upstairs",*/ "upstairs");
     Room bedRoom = new Room(/*"You are in the bedroom",*/ "bed room");
+    Room outside = new Room("outside");
 
     Item cup = new Item("cup", "plastic cup");
     Item tape = new Item("tape", "it's duct tape.");
@@ -29,11 +30,14 @@ public class World {
     Puppy puppy = new Puppy("puppy", "A hideous puppy wags his tail.");
     Oldman oldman = new Oldman("oldman","An old man sleeping on the couch.");
 
+    outside.setLock(false);
+
     entrRoom.addExit('e',livRoom);
     entrRoom.addExit('w',diningRoom);
     entrRoom.addExit('u',upStairs);
+    entrRoom.addExit('s',outside);
     entrRoom.setLock(false);
-
+    
     livRoom.addExit('w',entrRoom);
     livRoom.addExit('n',kitchenRoom);
     livRoom.setItem(cane);
