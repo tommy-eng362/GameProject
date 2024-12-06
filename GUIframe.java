@@ -8,33 +8,48 @@ public class GUIframe extends JFrame implements ActionListener {
         buildFrame();
     }
 
-    JTextField textfield =  new JTextField();
-    static JTextArea textarea = new JTextArea();
+    public JTextArea textarea;
+    private JPanel panel;
+    private JLabel label;
+    private JTextField textField;
+    private JButton button;
 
-    private void buildFrame(){
-        setTitle("A Very Random Game");
-        setLayout(new BorderLayout());
-
-        JPanel panel = new JPanel(new GridLayout(3,1)); 
-        JLabel label = new JLabel("What would you like to do?");
-        JButton button = new JButton("Execute");
-
-        panel.add(label);
-        panel.add(textfield);
-        panel.add(button);
-
-        add(textarea,BorderLayout.CENTER);
-        add(panel,BorderLayout.SOUTH);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500,500);
-        setLocationRelativeTo(null);
-        setVisible(true);
-    }
-
-    public void actionPerformed(ActionEvent thing){
-        JButton b = (JButton) thing.getSource();
-        String s = textfield.getText();
+    @Override
+    public void actionPerformed(ActionEvent event){
+        JButton j = (JButton) event.getSource();
+        String s = textField.getText();
         Game.processCommand(s);
     }
+
+    private void buildFrame(){
+        setTitle("Game");
+        setLayout(new BorderLayout());  // Specifies 3x3 layout
+        textarea = new JTextArea();
+        panel = new JPanel();
+        panel.setLayout(new GridLayout(3,1));
+        label = new JLabel("What would you like to do?");
+        textField = new JTextField();
+
+        button = new JButton("Execute");
+        button.addActionListener(this);
+
+        panel.add(label);
+        panel.add(textField);
+        panel.add(button);
+        add(textarea, BorderLayout.CENTER);
+        add(panel, BorderLayout.SOUTH);
+
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500, 500);
+        setLocationRelativeTo(null); // Center window
+        setVisible(true); // Make window appear
+    
+
+        
+
+    }
+
+    
+
 }
