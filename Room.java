@@ -136,4 +136,8 @@ public class Room implements Serializable{
     public void removeNPC(String name) {
         NPCMap.remove(name);
     }
+
+    public String getRoomName(){
+        return name;
+    }
 }

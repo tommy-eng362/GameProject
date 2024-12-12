@@ -30,7 +30,7 @@ public class World {
     Puppy puppy = new Puppy("puppy", "A hideous puppy wags his tail.");
     Oldman oldman = new Oldman("oldman","An old man sleeping on the couch.");
 
-    outside.setLock(false);
+    outside.setLock(true);
 
     entrRoom.addExit('e',livRoom);
     entrRoom.addExit('w',diningRoom);

@@ -41,7 +41,7 @@ public class GUIframe extends JFrame implements ActionListener {
 
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 500);
+        setSize(900, 500);
         setLocationRelativeTo(null); // Center window
         setVisible(true); // Make window appear
     

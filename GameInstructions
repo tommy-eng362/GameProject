@@ -1,0 +1,7 @@
+The contains a full world with interactable objects that you can pick up and use.
+The gimmick of the game is that there is only one thing that you have to do to win.
+First you move east into the living room. // "e"
+Then you try to talk to the oldman 2 times. // "talk old man" twice and enter 1 twice
+He will throw you the key to the entrance door. // "i to check for key name"
+You will use the key to unlock the entrance door. // "use entrancekey"
+Then you move south to end the game. // "s"
