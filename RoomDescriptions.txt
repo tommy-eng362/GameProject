@@ -1,38 +1,38 @@
 #
 #
-entrance
-entrance room
+You are in the entrance
+Front Door: South _ Dining Room: East _ Living Room: West _ Upstairs: Up 
 #
 #
-living room
-the living room
+You are in the living room
+Entrance: West _ Kitchen: North _ Items: cane,tvRemote,blanket _ There is an oldman sleeping on the couch
 #
 #
-dining room
-the dining room
+You are in the dining room
+Enrance: East _ Bathroom: North _ Item: safe
 #
 #
-kitchen
-the kitchen
+You are in the kitchen
+Living Room: South _ Basement: Down _ Items: scissors,cup,tape
 #
 #
-bath room
-the bath room
+You are in the bathroom
+Dining Room: South _ Item: mirror
 #
 #
-basement
-the basement
+You are in the basement
+Kitchen: Up _ Items: vase, batteries, combination
 #
 #
-upstairs
-the upstairs
+You are upstairs
+Bedroom: North _ Entrance: Down _ 
 #
 #
-bed room
-the bed room
+You are in the bedroom
+Upstairs: South
 #
 #
-outside
-the outside
+You are outside
+You have escaped the house thank you for playing. Press x to end game.
 #
 #

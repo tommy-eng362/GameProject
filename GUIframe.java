@@ -22,7 +22,7 @@ public class GUIframe extends JFrame implements ActionListener {
     }
 
     private void buildFrame(){
-        setTitle("Game");
+        setTitle("Only ONE Thing Matters.");
         setLayout(new BorderLayout());  // Specifies 3x3 layout
         textarea = new JTextArea();
         panel = new JPanel();
@@ -41,7 +41,7 @@ public class GUIframe extends JFrame implements ActionListener {
 
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 500);
+        setSize(700, 500);
         setLocationRelativeTo(null); // Center window
         setVisible(true); // Make window appear
     
